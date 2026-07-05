@@ -1,19 +1,117 @@
-Bella Vista Restaurant — Business Website (Portfolio Project)
-Bella Vista is a fully responsive, single-page restaurant website built as a portfolio demo showcasing an elegant, upscale dining brand presence. It uses only HTML, CSS, and vanilla JavaScript, with no frameworks or backend, keeping it lightweight and fast.
-Key Sections:
-Hero Section — Full-screen intro with background image, tagline, and call-to-action button linking to reservations.
-Our Story — Short brand narrative explaining the restaurant's philosophy and ingredients sourcing.
-Signature Dishes — Card-based menu highlighting three standout dishes with pricing.
-Gallery — Visual showcase of the restaurant's interior and plated dishes.
-Reservation Form — Functional booking form with name, contact info, date, and party size (front-end only, doesn't send real data).
-Design Approach:
-An elegant, dark and gold color palette with serif typography reflects a fine-dining aesthetic. Built with Flexbox and CSS Grid for full responsiveness across devices — no external frameworks used.
-Note: This is a demo/portfolio project to demonstrate front-end design and deployment skills. Bella Vista is not a real business, and the reservation form does not send or store data.
-Repository Includes:
-index.html — Full website code
-README.md — Project overview and documentation
-.gitignore — Excludes unnecessary system/editor files
-LICENSE — MIT License
-Tech Stack: HTML5, CSS3 (Flexbox & Grid), Vanilla JavaScript
-Hosting: GitHub Pages
-License: MIT
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bella Vista Restaurant</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', 'Segoe UI', serif; line-height: 1.6; color: #2b2b2b; }
+  nav { position: fixed; top: 0; width: 100%; background: rgba(20,20,20,0.95); padding: 18px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 100; }
+  nav .logo { color: #d4af37; font-size: 24px; font-weight: bold; letter-spacing: 1px; }
+  nav ul { list-style: none; display: flex; gap: 28px; }
+  nav ul li a { color: #fff; text-decoration: none; font-size: 15px; }
+  nav ul li a:hover { color: #d4af37; }
+  .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 0 20px; }
+  .hero h1 { font-size: 52px; margin-bottom: 15px; font-weight: normal; }
+  .hero p { font-size: 18px; margin-bottom: 25px; max-width: 500px; letter-spacing: 0.5px; }
+  .btn { background: #d4af37; color: #1a1a1a; padding: 14px 34px; border: none; border-radius: 0; font-size: 15px; letter-spacing: 1px; cursor: pointer; text-decoration: none; text-transform: uppercase; }
+  .btn:hover { background: #b8942f; }
+  section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+  h2 { text-align: center; font-size: 36px; margin-bottom: 40px; font-weight: normal; letter-spacing: 1px; }
+  .about p { text-align: center; max-width: 700px; margin: 0 auto; font-size: 17px; color: #555; }
+  .menu { background: #faf7f2; }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+  .menu-card { background: #fff; padding: 28px; border: 1px solid #eee; text-align: center; }
+  .menu-card h3 { color: #d4af37; margin-bottom: 8px; font-weight: normal; font-size: 20px; }
+  .menu-card .price { font-size: 18px; color: #333; margin-top: 10px; font-weight: bold; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+  .gallery-grid img { width: 100%; height: 220px; object-fit: cover; }
+  .reserve { background: #1a1a1a; color: #fff; text-align: center; }
+  .reserve input, .reserve textarea, .reserve select { width: 100%; max-width: 500px; padding: 12px; margin: 8px 0; border: none; border-radius: 4px; font-family: inherit; }
+  .reserve form { display: flex; flex-direction: column; align-items: center; }
+  footer { text-align: center; padding: 25px; background: #0e0e0e; color: #888; font-size: 14px; }
+  footer small { display: block; margin-top: 6px; color: #666; }
+  @media (max-width: 600px) {
+    nav ul { display: none; }
+    .hero h1 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Bella Vista</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reserve">Reserve</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Fine Dining, Timeless Flavors</h1>
+  <p>Experience authentic Italian cuisine crafted with fresh, locally-sourced ingredients in an elegant, warm setting.</p>
+  <a href="#reserve" class="btn">Reserve a Table</a>
+</div>
+
+<section class="about" id="about">
+  <h2>Our Story</h2>
+  <p>Bella Vista has been serving handcrafted Italian dishes for over a decade, blending traditional recipes with modern presentation. Every dish is made with passion, using ingredients sourced from local farms and trusted Italian producers.</p>
+</section>
+
+<section class="menu" id="menu">
+  <h2>Signature Dishes</h2>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <h3>Truffle Risotto</h3>
+      <p>Creamy arborio rice, wild mushrooms, shaved black truffle</p>
+      <div class="price">₹650</div>
+    </div>
+    <div class="menu-card">
+      <h3>Grilled Branzino</h3>
+      <p>Mediterranean sea bass, lemon butter, seasonal vegetables</p>
+      <div class="price">₹850</div>
+    </div>
+    <div class="menu-card">
+      <h3>Tiramisu</h3>
+      <p>Classic espresso-soaked layers with mascarpone cream</p>
+      <div class="price">₹350</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500" alt="Restaurant interior">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500" alt="Plated dish">
+    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500" alt="Dining table">
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <h2>Reserve a Table</h2>
+  <form onsubmit="event.preventDefault(); alert('Thank you! Your reservation request has been received.');">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="date" required>
+    <select required>
+      <option value="">Select Party Size</option>
+      <option>1-2 Guests</option>
+      <option>3-4 Guests</option>
+      <option>5+ Guests</option>
+    </select>
+    <button class="btn" type="submit">Confirm Reservation</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2026 Bella Vista Restaurant. All rights reserved.
+  <br><small>This is a demo/portfolio project — not a real business.</small>
+</footer>
+
+</body>
+  </html>
